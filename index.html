@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An online random UUID (V4 GUID) generator. Quickly generate random UUIDs or view an empty UUID instantly.">
+    <meta name="keywords" content="guid generator, uuid generator, online guid generator, online uuid generator, random guid generator, random uuid generator, generate guid, generate uuid, empty guid, empty uuid">
+    <title>Random UUID Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        input[readonly] {
+            cursor: not-allowed;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        small {
+            display: block;
+            margin-top: 10px;
+            color: #666;
+        }
+
+        .empty-uuid {
+            margin-top: 15px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random UUID Generator</h1>
+        <input type="text" id="uuid" readonly>
+        <button onclick="generateUUID()">New</button>
+        <small>V4 UUID</small>
+        <div class="empty-uuid">
+            <p><strong>Empty UUID:</strong> 00000000-0000-0000-0000-000000000000</p>
+        </div>
+    </div>
+
+    <script>
+        function generateUUID() {
+            const uuid = crypto.randomUUID();
+            document.getElementById('uuid').value = uuid;
+        }
+        window.onload = generateUUID;
+    </script>
+</body>
+</html>
